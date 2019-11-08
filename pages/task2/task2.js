@@ -1,19 +1,20 @@
-function sortWithMin(arr) {
-    const stack = [];
-    
-    for(let i = 0; i < arr.length; i++) {
-        const newArr = [...arr];
-        newArr.splice(0, stack.length);
-        let min = Math.min.apply(null, newArr);
-        const num = arr.splice(arr.indexOf(min), 1);
-        arr.splice(stack.length, 0, ...num);
-        stack.push(min);
+function sortWithMin(arr) {    
+    let min = Math.min.apply(null, arr);   
+    [arr[0], arr[arr.indexOf(min)]] = [arr[arr.indexOf(min)], arr[0]];
+
+    for(let i = 1; i < arr.length; i++) {
+        if (arr[i] < min) {
+            [arr[arr.indexOf(min)], arr[i]] = [arr[i], arr[arr.indexOf(min)]];
+        }
+
+        min = arr[i];                
     }
 
     return arr;
 }
 
 const arr1 = [5, 1, 4, 2];
+
 console.log(sortWithMin(arr1));
 
 const arr2 = [8, 7, 6, 4];
