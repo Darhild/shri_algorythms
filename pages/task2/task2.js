@@ -1,13 +1,10 @@
-function sortWithMin(arr) {    
-    let min = Math.min.apply(null, arr);   
-    [arr[0], arr[arr.indexOf(min)]] = [arr[arr.indexOf(min)], arr[0]];
-
-    for(let i = 1; i < arr.length; i++) {
-        if (arr[i] < min) {
-            [arr[arr.indexOf(min)], arr[i]] = [arr[i], arr[arr.indexOf(min)]];
-        }
-
-        min = arr[i];                
+function sortWithMin(arr) {   
+    for(let i = 0; i < arr.length; i++) {
+        for(let j = i + 1; j < arr.length; j++) {
+            if (arr[j] < arr[i]) {
+                [arr[j], arr[i]] = [arr[i], arr[j]];
+            }
+        }                    
     }
 
     return arr;
