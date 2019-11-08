@@ -1,10 +1,13 @@
 function sortWithMin(arr) {   
     for(let i = 0; i < arr.length; i++) {
+        let min = arr[i];
         for(let j = i + 1; j < arr.length; j++) {
-            if (arr[j] < arr[i]) {
-                [arr[j], arr[i]] = [arr[i], arr[j]];
-            }
-        }                    
+            if (arr[j] < min) min = arr[j];        
+        } 
+
+        const num = arr[i];
+        arr[arr.indexOf(min)] = num;
+        arr[i] = min;
     }
 
     return arr;
