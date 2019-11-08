@@ -1,5 +1,6 @@
 function walkTree(elem) {
     if(elem.children) {
+        console.log(elem.value);
         elem.children.forEach(child => walkTree(child));        
     }
     else console.log(elem.value);
