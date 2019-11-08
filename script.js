@@ -17,3 +17,6 @@ console.log(bubbleSort(arr1));
 
 const arr2 = [8, 7, 6, 4];
 console.log(bubbleSort(arr2));
+
+const arr3 = [32, 1, 4, 9, 21];
+console.log(bubbleSort(arr3));
